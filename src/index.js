@@ -58,7 +58,8 @@ const styles = StyleSheet.create({
     top: 80,
     height: 50,
     fontSize: 20,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    color:'#FFF'
   }
 });
 
@@ -84,16 +85,20 @@ export default class Spinner extends React.Component {
 
   static defaultProps = {
     visible: false,
-    cancelable: false,
-    textContent: '',
-    animation: 'none',
+    cancelable: true,
+    textContent: '请稍后',
+    animation: 'fade',
     color: 'white',
     size: 'large', // 'normal',
-    overlayColor: 'rgba(0, 0, 0, 0.25)'
+    overlayColor: 'rgba(0, 0, 0, 0.5)'
   };
 
   close() {
     this.setState({ visible: false });
+  }
+
+  show(){
+    this.setState({ visible: true });
   }
 
   componentWillReceiveProps(nextProps) {
