@@ -33,20 +33,21 @@ const styles = StyleSheet.create({
     top: 0,
     bottom: 0,
     left: 0,
-    right: 0
-  },
-  background: {
-    position: 'absolute',
-    top: 0,
-    bottom: 0,
-    left: 0,
     right: 0,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+  },
+  background: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    width:100,
+    height:80,
+    backgroundColor:'rgba(0,0,0,0.5)',
+    borderRadius:5
   },
   textContainer: {
     flex: 1,
-    top: 0,
+    top: -20,
     bottom: 0,
     left: 0,
     right: 0,
@@ -55,9 +56,9 @@ const styles = StyleSheet.create({
     position: 'absolute'
   },
   textContent: {
-    top: 80,
+    top: 40,
     height: 50,
-    fontSize: 20,
+    fontSize: 14,
     fontWeight: 'bold',
     color:'#FFF'
   }
@@ -86,11 +87,11 @@ export default class Spinner extends React.Component {
   static defaultProps = {
     visible: false,
     cancelable: true,
-    textContent: '请稍后',
+    textContent: '请稍后...',
     animation: 'fade',
     color: 'white',
-    size: 'large', // 'normal',
-    overlayColor: 'rgba(0, 0, 0, 0.5)'
+    size: 'small', // 'normal',
+    overlayColor: 'rgba(0, 0, 0, 0.0)'
   };
 
   close() {
@@ -118,7 +119,7 @@ export default class Spinner extends React.Component {
         <ActivityIndicator
           color={this.props.color}
           size={this.props.size}
-          style={{ flex: 1 }}
+          style={{ flex: 1 ,marginTop:-20}}
         />
         <View style={styles.textContainer}>
           <Text style={[styles.textContent, this.props.textStyle]}>{this.state.textContent}</Text>
